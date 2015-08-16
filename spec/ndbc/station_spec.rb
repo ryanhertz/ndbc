@@ -87,4 +87,18 @@ describe NDBC::Station do
     it_behaves_like "station"
   end
 
+  describe "error handling" do
+    
+    let(:not_found) do
+      NDBC::Station.new(00000)
+    end
+
+    it "catches 404's" do
+      VCR.use_cassette("station_not_found") do
+        expect{not_found.standard_meteorological_data}.not_to raise_error
+      end
+
+    end
+  end
+
 end

@@ -26,11 +26,17 @@ module NDBC
     private
 
     def get_data(type)
-      parse_response connection.get("/data/realtime2/#{id}.#{type}")
+      begin
+        response = connection.get("/data/realtime2/#{id}.#{type}")
+        parse_response response
+      rescue NotFound => error
+        puts "Failed to get data for station #{id}"
+        { units: {}, values: [] }
+      end
     end
 
     def parse_response(response)
-      response = response.body.split("\n")
+      response = response.split("\n")
 
       labels = response[0][1..-1].split(/\s+/)
       units = response[1][1..-1].split(/\s+/)

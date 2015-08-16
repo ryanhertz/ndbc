@@ -1,0 +1,238 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.ndbc.noaa.gov/not_found
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sun, 16 Aug 2015 22:38:22 GMT
+      Server:
+      - Apache
+      Accept-Ranges:
+      - bytes
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - must-revalidate
+      Content-Length:
+      - '4633'
+      Connection:
+      - close
+      Content-Type:
+      - text/html; charset=ISO-8859-1
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html
+        xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\n<head>\n\n<title>NDBC
+        - The page that you requested is not found</title>\n<link rel=\"stylesheet\"
+        href=\"/style/ndbc.css\" type=\"text/css\" />\n\t<meta http-equiv=\"Content-Type\"
+        content=\"Text/html; charset=iso-8859-1\" />\n\t<meta name=\"DC.title\" content=\"National
+        Data Buoy Center\" />\n\t<meta name=\"DC.description\" content=\"Provides
+        nerby observations for specified location, range and time frame.\" />\n\t<meta
+        name=\"DC.subject\" content=\"weather, buoy, weather buoy, marine, forecast,
+        hurricane, wind, wave, offshore, surfing, temperature, meteorology, climate,
+        ocean\" />\n\t<meta name=\"DC.creator\" content=\"US Department of Commerce,
+        National Oceanic and Atmospheric Administration, National Weather Service,
+        National Data Buoy Center\" />\n\t<meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\"
+        content=\"EN-US\" />\n\t<meta name=\"DC.format\" content=\"text/html;charset=iso-8859-1\"
+        />\n\t<meta name=\"DC.date.created\" scheme=\"ISO8601\" content=\"1996-11-08\"
+        />\n\t<meta name=\"DC.date.reviewed\" scheme=\"ISO8601\" content=\"2014-07-25\"
+        />\n  <link rel=\"stylesheet\" href=\"/style/ndbc.css\" type=\"text/css\"
+        />\n</head>\n<!-- Start Top Navbar -->\n<body class=\"claro\">\n\n<div id=\"topnav\"
+        class=\"noprint\">\n<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\"
+        width=\"100%\">\n<tr><td>\n<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\"
+        width=\"100%\" style=\"background-image:url(/images/nws/topbanner.jpg)\">\n\t<tr>\n\t<td
+        align=\"right\" height=\"19\"><a href=\"#contents\"><img src=\"/images/nws/skipgraphic.gif\"
+        alt=\"Skip Navigation Links\" width=\"1\" height=\"1\" border=\"0\" /></a>
+        <a href=\"http://www.weather.gov/\"><span class=\"nwslink\">weather.gov</span></a>&nbsp;</td>\n\t</tr>\n</table>\n\n<table
+        cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\">\n\t<tr>\n\t\t<td><a
+        href=\"http://www.noaa.gov\"><img src=\"/images/nws/noaaleft.jpg\" alt=\"NOAA
+        logo-Select to go to the NOAA homepage\" width=\"85\" height=\"78\" border=\"0\"
+        /></a></td>\n\t\t<td width=\"500\" height=\"78\" align=\"center\" nowrap=\"nowrap\"><img
+        src=\"/images/nws/ndbc_title.jpg\" width=\"500\" height=\"78\" alt=\"NDBC
+        Title Graphic\" border=\"0\" usemap=\"#NDBCLinkMap\"/><map id=\"NDBCLinkMap\"
+        name=\"NDBCLinkMap\"><area shape=\"rect\" coords=\"62,20,452,56\" href=\"/\"
+        alt=\"Click to go to NDBC home page\" /></map></td>\n\t\t<td width=\"100%\"
+        style=\"background-image:url(/images/nws/wfo_bkgrnd.jpg)\">&nbsp;</td>\n\t\t<td
+        align=\"right\"><a href=\"http://www.weather.gov/\"><img src=\"/images/nws/nwsright.jpg\"
+        alt=\"Select to go to the NWS homepage\" width=\"85\" height=\"78\" border=\"0\"
+        /></a></td>\n\t</tr>\n</table>\n\n<table cellspacing=\"0\" cellpadding=\"0\"
+        border=\"0\" style=\"background-image:url(/images/nws/navbkgrnd.gif)\" width=\"100%\">\n\t<tr>\n\t\t<td
+        align=\"left\" valign=\"top\" width=\"94\"><img src=\"/images/nws/navbarleft.jpg\"
+        alt=\"\" width=\"94\" height=\"23\" border=\"0\" /></td>\n\t\t<td width=\"15%\"
+        align=\"center\" nowrap=\"nowrap\"><a href=\"/\" class=\"nav\">Home</a></td>\n\t\t<td
+        width=\"15%\" align=\"center\"><a href=\"/new.shtml\" class=\"nav\">News</a></td>\n\t\t<td
+        width=\"20%\" align=\"center\"><a href=\"http://www.weather.gov/organization.php\"
+        class=\"nav\" target=\"_blank\" onclick=\"window.open('http://www.weather.gov/organization.php','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return
+        false\">Organization</a> </td>\n\t\t<td align=\"right\" class=\"searchinput\"
+        width=\"40%\" nowrap=\"nowrap\"><form method=\"get\" action=\"http://search.usa.gov/search\"
+        style=\"margin-bottom:0; margin-top:0;\">\n\t\t\t<label for=\"Search\" class=\"yellow\">Search&nbsp;</label>\n\t\t\t<input
+        type=\"hidden\" name=\"affiliate\" value=\"ndbc.noaa.gov\" />\n\t\t\t<input
+        type=\"hidden\" name=\"v:project\" value=\"firstgov\" />\n\t\t\t<input type=\"text\"
+        name=\"query\" value=\"NDBC Web Site\" onclick=\"this.value='';return(true);\"
+        size=\"20\" maxlength=\"256\" id=\"Search\" />\n\t\t\t<input type=\"submit\"
+        value=\"Search\" />\n\t\t</form></td>\n\t\t<td width=\"10%\">&nbsp;</td>\n\t\t<td
+        align=\"right\" valign=\"bottom\" width=\"24\"><img src=\"/images/nws/navbarendcap.jpg\"
+        alt=\"\" width=\"24\" height=\"23\" border=\"0\" /></td>\n\t</tr>\n</table>\n</td></tr></table>\n</div>\n<!--
+        End Top Navbar -->\n\n\n<!-- Start Side Navbar -->\n\n<div id=\"contentdiv\">\n<table
+        id=\"contenttable\" width=\"700\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n\t<tr
+        valign=\"top\">\n\t<td id=\"sidenav\" class=\"noprint\" width=\"130\" bgcolor=\"#0a2390\"
+        align=\"left\" valign=\"top\" style=\"margin-top:5px\" nowrap=\"nowrap\">\n\t\t\t<form
+        id=\"station_form\" method=\"get\" action=\"/station_page.php\" style=\"margin-bottom:0\">\n\t\t\t&nbsp;<span
+        class=\"yellow\"><label for=\"station\">Station ID Search</label></span><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"searchinput\"><input name=\"station\"
+        id=\"station\" value=\"\" size=\"6\" maxlength=\"5\" />\n\t\t\t<input type=\"submit\"
+        value=\"Go\"/></span></form>\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/to_station.shtml\"
+        class=\"nav\">Station List</a><br /><br />\n\n\t\t\t&nbsp;<span class=\"yellow\">Observations</span><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/mobile/\" title=\"Access current
+        marine observations on your mobile device\" class=\"nav\">Mobile Access</a><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/obs.shtml\" title=\"Observations
+        via Google Maps\" class=\"nav\">Obs via Google Maps</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class=\"yellow\">Classic Maps</span><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/rmd.shtml\" class=\"nav\">Recent</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/hmd.shtml\" class=\"nav\">Historical</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/dart.shtml\" title = \"Deep Ocean Assessment and Reporting of Tsunamis\"
+        class=\"nav\">DART&#174;</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/obs.shtml?lat=28&amp;lon=-91&amp;zoom=6&amp;type=h&amp;status=r&amp;pgm=Oil%20and%20Gas%20Industry&amp;op=&amp;ls=false\"
+        title=\"Western Gulf of Mexico Oil &amp; Gas ADCP Recent Marine Data\" class=\"nav\">Oil
+        &amp; Gas ADCP</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/os.shtml\"
+        class=\"nav\">Obs Search</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/ship_obs.php\"
+        class=\"nav\">Ship Obs Report</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/gliders.php\" class=\"nav\">Gliders</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/buoycams.shtml\" title=\"BuoyCAMs\" class=\"nav\">BuoyCAMs <img src='/images/camera_icon.png'
+        alt='Image indicating link to BuoyCAMs page' width='16' height='12' border='0'
+        /></a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"http://tao.ndbc.noaa.gov/\"
+        title=\"Tropical Atmosphere Ocean\" class=\"nav\">TAO</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"http://dods.ndbc.noaa.gov/\" title=\"NDBC DODS Server\" class=\"nav\">DODS</a><br
+        />\n            &nbsp;&nbsp;&nbsp;&nbsp;<a href=\"http://dods.ndbc.noaa.gov/oceansites/\"
+        title=\"NDBC OceanSITES GDAC\" class=\"nav\">OceanSITES</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"http://hfradar.ndbc.noaa.gov/\" title=\"HF Radar Demonstration\" class=\"nav\">HF
+        Radar</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"http://osmc.noaa.gov/Monitor/OSMC/OSMC.html\"
+        title=\"Observing System Monitoring Center (OSMC)\" class=\"nav\">OSMC</a><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/dial.shtml\" class=\"nav\">Dial-A-Buoy</a><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/rss_access.shtml\" title=\"RSS
+        Feeds\" class=\"nav\">RSS Feeds <img src='/images/feed-icon-14x14.png' alt='Image
+        indicating link to RSS feed access page' width='14' height='14' border='0'
+        /></a><br />\n      &nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/widgets/\" class=\"nav\">Obs
+        Web Widget</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/email_access.shtml\"
+        title=\"Email Access\" class=\"nav\">Email Access</a><br />\n\t\t\t<br />\n\n\t\t\t&nbsp;<span
+        class=\"yellow\">Station Status</span><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/ops.shtml\" class=\"nav\">NDBC Maintenance</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/wstat.shtml\" class=\"nav\">NDBC Platforms</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/pstat.shtml\" class=\"nav\">Partner Platforms</a><br /><br />\n\n\t\t\t&nbsp;<span
+        class=\"yellow\">Program Info</span><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/ndbcexit.php?url=https://www.facebook.com/NWSNDBC&amp;blurb=NDBC%20on%20Facebook\"
+        class=\"nav\"><img src=\"/images/facebook_logo.gif\" height=\"33\" width=\"110\"
+        alt=\"Facebook Logo\" title=\"Find us on Facebook\" style=\"margin-top:2px;\"/></a><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/ndbcexit.php?url=https://www.facebook.com/NWSNDBC&amp;blurb=NDBC%20on%20Facebook\"
+        class=\"nav\">NDBC on Facebook</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/about_ndbc.shtml\" class=\"nav\">About NDBC</a><br />\n\t      \t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class=\"yellow\">Met/Ocean</span><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/mooredbuoy.shtml\" class=\"nav\">Moored Buoy</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/cman.php\" class=\"nav\">C-MAN</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"http://tao.ndbc.noaa.gov/proj_overview/proj_overview_ndbc.shtml\" class=\"nav\">TAO</a><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/dart/dart.shtml\" class=\"nav\">DART&#174;</a><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"http://www.vos.noaa.gov/\" title=\"Voluntary
+        Observing Ship Project\" class=\"nav\">VOS</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/csp.shtml\" title=\"NOAA's Coastal Storms Program\" class=\"nav\">CSP</a><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"http://www.ioos.noaa.gov/\" title=\"IOOS
+        Program\" class=\"nav\">IOOS&#174; Program</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/ioos.shtml\" title=\"IOOS Data Assembly Center\" class=\"nav\">IOOS&#174;
+        DAC</a><br /><br />\n\n\t\t\t&nbsp;<span class=\"yellow\">Publications</span><br
+        />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/NDBCHandbookofAutomatedDataQualityControl2009.pdf\"
+        class=\"nav\">NDBC DQC Handbook</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"/hurricanes.shtml\" class=\"nav\">Hurricane Data Plots</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"http://www.vos.noaa.gov/mwl.shtml\" class=\"nav\">Mariners Weather\n\t\t\t<br
+        />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log</a><br />\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;<a
+        href=\"http://www.vos.noaa.gov/ObsHB-508/ObservingHandbook1_2010_508_compliant.pdf\"
+        class=\"nav\">Observing\n                  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handbook
+        No. 1</a><br /><br />\n\t\t\t&nbsp;<a href=\"/educate/educate.shtml\" class=\"nav\">Science
+        Education</a><br /><br />\n\n\t\t\t&nbsp;<span class=\"yellow\"><a href=\"/faq.shtml\"
+        class=\"nav\">FAQ</a></span><br />\n\t\t\t&nbsp;<span class=\"yellow\"><a
+        href=\"http://www.noaa.gov/media.html#NWS\" class=\"nav\">Media Inquiries</a></span><br
+        />\n\t\t\t&nbsp;<span class=\"yellow\"><a href=\"/contact_us.shtml\" class=\"nav\">Contact
+        Us</a></span><br />\n\t\t\t&nbsp;<span class=\"yellow\"><a href=\"/visitorinfo.shtml\"
+        class=\"nav\">Visitor Information</a></span><br />\n\t\t\t&nbsp;<span class=\"yellow\"><a
+        href=\"/links.shtml\" class=\"nav\">Links</a></span><br />\n\t\t\t&nbsp;<br
+        />\n\t\t\t<a href=\"http://www.usa.gov/\"><img src=\"/images/usagov_logo.gif\"
+        alt=\"USA.gov is the U.S. government's official web portal to all federal,
+        state and local government web resources and services.\" width=\"110\" height=\"30\"
+        hspace=\"3\" vspace=\"3\" border=\"0\" /></a><br />\n\t\t</td>\n\t\t<td id=
+        \"gutter\" class=\"noprint\" width=\"10\"><img src=\"/images/blank.gif\" width=\"10\"
+        height=\"1\" border=\"0\" alt=\"\" /></td>\n\n\t\t<td valign=\"top\" width=\"560\"><a
+        name=\"contents\"></a>\n\t<div id=\"notices\" class=\"noprint\">\n\t\t<!--
+        Put notices here -->\n<div style=\"border: red solid 2px;margin:4px 2px;\">\n<p
+        style=\"margin: 10px\"><img src=\"/images/hurrsmall.jpg\" alt=\"Hurricane
+        Symbol\" align=\"left\" height=\"22\" width=\"11\" style=\"margin-right:0.5em\"
+        /> <strong><span style=\"color:red\">Storm Special!</span></strong>  View
+        the latest observations near <a href=\"/radial_search.php?storm=ep1\"><strong>East
+        Pacific TROPICAL DEPRESSION ELEVEN-E as of ADVISORY NUMBER 4 @ 200 PM PDT
+        SUN AUG 16 2015</strong></a>.</p>\n</div>\n\n\t</div>\n\t\t<h1 style=\"text-align:center;
+        margin:3px;\">The page that you requested is not found</h1>\n\t\t\n\n<!--
+        End Side Navbar -->\n\n\n\n<p>\nThe page you requested cannot be found.  The
+        page may have been removed, may have been renamed, or may be temporarily unavailable.\n</p>\n\n<p>Please
+        try the following:</p>\n\n<ul>\n\n<li><p>\n<span  class=\"notice\">HAVING
+        A MAP ISSUE?</span> &#8212; If you are using a URL containing 'Maps', change
+        the uppercase 'M' to a lowercase 'm'. For example, http://www.ndbc.noaa.gov/Maps/WestGulf.shtml
+        is now http://www.ndbc.noaa.gov/maps/WestGulf.shtml.\n</p></li>\n\n<li><p>\n<span
+        \ class=\"notice\">Does your URL contain 'phtml'?</span> &#8212; NDBC stopped
+        supporting outdated links on December 1, 2009. Click <a href=\"/oldlinks.shtml\">here</a>
+        for more information.\n</p></li>\n\n<li><p>\nIf you typed the page address
+        in the Address bar, make sure that it is spelled correctly.\n</p></li>\n\n<li><p>Use
+        the navigation bars at the top and left of this page to find links to the
+        information you want.</p></li>\n\n<li><p>\nIf you have followed a link from
+        <em>another site</em>, please notify the author of the incorrect address.\n</p></li>\n\n<li><p>\nIf
+        you are using an <em>old bookmark</em>, please update your bookmarks!\n</p></li>\n\n<li><p>\nIf
+        you cannot find the RSS page for your favorite station, please visit the station
+        page and ensure that the data is not more than 8 hours old. The station might
+        not have recent data.\n</p></li>\n\n<li><p>\nIf you cannot find the page for
+        which you are looking, please\nnotify the <a href=\"mailto:webmaster.ndbc@noaa.gov\">NDBC
+        Webmaster</a>.\n</p></li>\n\n</ul>\n\n<!-- Start Tail -->\n\n\t\t<div id=\"footer\"
+        class=\"noprint\" style=\"clear:both;\">\n\t\t\t<hr width=\"100%\" size=\"1\"
+        noshade=\"noshade\" />\n\n\t\t\t<table width=\"100%\" cellpadding=\"2\" border=\"0\">\n\t\t\t\t<tr
+        valign=\"top\">\n\t\t\t\t\t<td width=\"70%\" align=\"left\" class=\"gray_no_line\"><a
+        href=\"http://www.commerce.gov/\"><span class=\"gray_no_line\">U.S. Dept.
+        of Commerce</span></a><br />\n\t\t\t\t\t<a href=\"http://www.noaa.gov/\"><span
+        class=\"gray_no_line\">National Oceanic and Atmospheric Administration</span></a><br
+        />\n\t\t\t\t\t<a href=\"http://www.nws.noaa.gov/\"><span class=\"gray_no_line\">National
+        Weather Service</span></a><br />\n\t\t\t\t\tNational Data Buoy Center<br />\n\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;Bldg.
+        3205<br />\n\t\t\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;Stennis Space Center, MS 39529<br
+        />\n\t\t\t\t\t<a href=\"/contact_us.shtml\"><span class=\"gray_no_line\">Contact&nbsp;Us</span></a><br
+        />\n\t\t\t\t\tPage last modified: July 25, 2014</td>\n\t\t\t\t\t<td width=\"15%\"
+        align=\"left\">\n\t\t\t\t\t<a href=\"http://www.weather.gov/disclaimer\" target=\"_blank\"
+        onclick=\"window.open('http://www.weather.gov/disclaimer','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return
+        false\"><span class=\"gray_no_line\">Disclaimer</span></a><br />\n\t\t\t\t\t<a
+        href=\"http://www.cio.noaa.gov/services_programs/info_quality.html\" target=\"_blank\"
+        onclick=\"window.open('http://www.cio.noaa.gov/services_programs/info_quality.html','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return
+        false\"><span class=\"gray_no_line\">Information&nbsp;Quality</span></a><br
+        />\n\t\t\t\t\t<a href=\"http://www.weather.gov/glossary/\" target=\"_blank\"
+        onclick=\"window.open('http://www.weather.gov/glossary/','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return
+        false\"><span class=\"gray_no_line\">Glossary</span></a></td>\n\t\t\t\t\t<td
+        width=\"15%\" align=\"left\">\n\t\t\t\t\t<a href=\"http://www.weather.gov/privacy.php\"
+        target=\"_blank\" onclick=\"window.open('http://www.weather.gov/privacy.php','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return
+        false\"><span class=\"gray_no_line\">Privacy Policy</span></a><br />\n\t\t\t\t\t<a
+        href=\"http://www.rdc.noaa.gov/~foia/\" target=\"_blank\" onclick=\"window.open('http://www.rdc.noaa.gov/~foia/','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return
+        false\"><span class=\"gray_no_line\">Freedom&nbsp;of&nbsp;Information</span></a><br
+        />\n\t\t\t\t\t<a href=\"http://www.weather.gov/admin.php\" target=\"_blank\"
+        onclick=\"window.open('http://www.weather.gov/admin.php','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return
+        false\"><span class=\"gray_no_line\">About Us</span></a><br />\n\t\t\t\t\t<a
+        href=\"http://www.weather.gov/careers.php\" target=\"_blank\" onclick=\"window.open('http://www.weather.gov/careers.php','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return
+        false\"><span class=\"gray_no_line\">Career&nbsp;Opportunities</span></a></td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t</div>\n\t\t</td>\n\t</tr>\n</table>\n</div>\n</body>\n\n<!--
+        End Tail -->\n\n\n\n\n</html> \n"
+    http_version: 
+  recorded_at: Sun, 16 Aug 2015 22:38:22 GMT
+recorded_with: VCR 2.9.3
