@@ -40,7 +40,7 @@ module NDBC
         values: []
       }
 
-      response.each do |line|
+      response[2..-1].each do |line|
         values = line.split(/\s+/).collect { |item| (item == "MM") ? nil : item }
         data[:values] << Hash[ labels.zip(values) ]
       end

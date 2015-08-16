@@ -44,6 +44,10 @@ describe NDBC::Station do
         end
         expect(mm_found).to be false
       end
+
+      it "skips the first two rows of raw data" do
+        expect(result[:values].first["YY"]).to eq("2015")
+      end
     end
 
   end
