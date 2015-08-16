@@ -16,24 +16,52 @@ describe NDBC::Station do
 
   end
 
+  shared_examples_for "station" do
+
+    it "returns a hash with units and values" do
+      expect(result[:units]).to be_a(Hash)
+      expect(result[:values]).to be_a(Array)
+    end
+
+    it "returns and array of values that are hashes" do
+      expect(result[:values].first).to be_a(Hash)
+    end
+
+  end
+
   describe "standard_meteorological_data" do
 
-    let(:smd) do 
+    let(:result) do 
       VCR.use_cassette("standard_meteorological_data") do
         station.standard_meteorological_data
       end
     end
 
-    it "returns a hash with units and values" do
-      expect(smd[:units]).to be_a(Hash)
-      expect(smd[:values]).to be_a(Array)
-    end
-
-    it "returns and array of values that are hashes" do
-      expect(smd[:values].first).to be_a(Hash)
-    end
+    it_behaves_like "station"
 
   end
 
-end
+  describe "meteorological data from drifting buoys" do
+  end
 
+  describe "continuous winds data" do
+    let(:result) do 
+      VCR.use_cassette("continuous_winds_data") do
+        station.continuous_winds_data
+      end
+    end
+
+    it_behaves_like "station"
+  end
+
+  describe "spectral wave summaries" do
+    let(:result) do 
+      VCR.use_cassette("spectral_wave_summaries") do
+        station.spectral_wave_summaries
+      end
+    end
+
+    it_behaves_like "station"
+  end
+
+end

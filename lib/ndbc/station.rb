@@ -1,3 +1,6 @@
+
+# http://www.ndbc.noaa.gov/rt_data_access.shtml
+
 module NDBC
   class Station
 
@@ -9,7 +12,25 @@ module NDBC
     end
 
     def standard_meteorological_data
-      response = connection.get("/data/realtime2/#{id}.txt").body.split("\n")
+      get_data "txt"
+    end
+
+    def continuous_winds_data
+      get_data "cwind"
+    end
+
+    def spectral_wave_summaries
+      get_data "spec"
+    end
+
+    private
+
+    def get_data(type)
+      parse_response connection.get("/data/realtime2/#{id}.#{type}")
+    end
+
+    def parse_response(response)
+      response = response.body.split("\n")
 
       labels = response[0].split(/\s+/)
       units = response[1].split(/\s+/)
