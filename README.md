@@ -24,6 +24,14 @@ Or install it yourself as:
 ```
 station = NDBC::Station.new(41009)
 station.standard_meteorological_data
+# output
+{
+    units: { "YY" => "yr", "MM" => "mo", ... },
+    values: [
+        {"YY" => "2015", "MM" => "08", ... },
+        {"YY" => "2015", "MM" => "08", ... }
+    ]
+}
 ```
 
 ## Contributing

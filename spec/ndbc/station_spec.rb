@@ -27,6 +27,25 @@ describe NDBC::Station do
       expect(result[:values].first).to be_a(Hash)
     end
 
+    describe "units" do
+      it "removes the # from the first two lines of raw text" do
+        expect(result[:units]["YY"]).to eq("yr")
+      end
+    end
+
+    describe "values" do
+      it "replaces 'MM' with nil" do
+        mm_found = false
+        result[:values].each do |row|
+          if row.values.include?("MM")
+            mm_found = true
+            break
+          end
+        end
+        expect(mm_found).to be false
+      end
+    end
+
   end
 
   describe "standard_meteorological_data" do

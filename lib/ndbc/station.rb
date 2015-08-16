@@ -32,16 +32,17 @@ module NDBC
     def parse_response(response)
       response = response.body.split("\n")
 
-      labels = response[0].split(/\s+/)
-      units = response[1].split(/\s+/)
+      labels = response[0][1..-1].split(/\s+/)
+      units = response[1][1..-1].split(/\s+/)
 
       data = {
         units: Hash[ labels.zip(units) ],
         values: []
       }
 
-      response.slice(2..26).each do |line|
-        data[:values] << Hash[ labels.zip(line.split(/\s+/)) ]
+      response.each do |line|
+        values = line.split(/\s+/).collect { |item| (item == "MM") ? nil : item }
+        data[:values] << Hash[ labels.zip(values) ]
       end
 
       data
