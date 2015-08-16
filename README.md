@@ -1,6 +1,7 @@
 # NDBC
 
-TODO: Write a gem description
+A ruby gem for getting NDBC (National Data Buoy Center) data.
+[http://www.ndbc.noaa.gov/rt_data_access.shtml](http://www.ndbc.noaa.gov/rt_data_access.shtml)
 
 ## Installation
 
@@ -20,7 +21,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+station = NDBC::Station.new(41009)
+station.standard_meteorological_data
+```
 
 ## Contributing
 
