@@ -101,4 +101,48 @@ describe NDBC::Station do
     end
   end
 
+  describe "spectral wave forecasts" do
+
+    let(:buoy) { NDBC::Station.new(41009) }
+
+    let(:response) do
+      VCR.use_cassette("spectral_wave_forecasts") do
+        buoy.spectral_wave_forecasts
+      end
+    end
+
+    it "makes a request" do
+      expect(buoy.connection).to receive(:get).with("http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/multi_1.41009.bull")
+      buoy.spectral_wave_forecasts
+    end
+
+    it "parses the cycle line and uses it to set up the first date" do
+      expect(response.first[:time]).to eq( DateTime.new(2015, 9, 7, 3) )
+    end 
+
+    it "returns an array of hashes with a height key" do
+      expect(response.first[:hst]).to be_a Float
+    end
+
+    it "returns an array of hashes with a swells array" do
+      expect(response.first[:swells]).to be_a Array
+    end
+
+    it "returns an array of hashes with a swells array, that contains hashes with hs, tp, and dir" do
+      swell = response.first[:swells].first
+      expect(swell[:hs]).to be_a Float
+      expect(swell[:tp]).to be_a Float
+      expect(swell[:dir]).to be_a Fixnum
+    end
+
+    describe "times" do
+
+      it "calculates the right time" do
+        expect(response[1][:time]).to eq( response.first[:time] + 1.hour )
+      end
+
+    end
+
+  end
+
 end

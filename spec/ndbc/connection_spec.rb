@@ -4,7 +4,7 @@ describe NDBC::Connection do
   
   describe "initialization" do
     it "creates a Faraday connection" do
-      expect(Faraday).to receive(:new).with(url: 'http://www.ndbc.noaa.gov')
+      expect(Faraday).to receive(:new)
       NDBC::Connection.new
     end
   end
@@ -18,7 +18,7 @@ describe NDBC::Connection do
 
     it "handles 404's" do
       VCR.use_cassette("not_found") do
-        expect{ connection.get("/not_found") }.to raise_error(NDBC::NotFound)
+        expect{ connection.get("http://www.ndbc.noaa.gov/not_found") }.to raise_error(NDBC::NotFound)
       end
     end
 

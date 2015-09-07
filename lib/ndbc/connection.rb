@@ -4,7 +4,7 @@ module NDBC
   class Connection
 
     def initialize
-      @client = Faraday.new(url: 'http://www.ndbc.noaa.gov') do |faraday|
+      @client = Faraday.new do |faraday|
         faraday.adapter  Faraday.default_adapter
       end
     end
