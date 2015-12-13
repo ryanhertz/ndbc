@@ -36,16 +36,19 @@ module NDBC
     end
 
     def parse_observation_response(response)
-      return if response.nil?
+      data = {
+        units: {},
+        values: []
+      }
+
+      return data if response.nil?
+
       response = response.split("\n")
 
       labels = response[0][1..-1].split(/\s+/)
       units = response[1][1..-1].split(/\s+/)
 
-      data = {
-        units: Hash[ labels.zip(units) ],
-        values: []
-      }
+      data[:units] = Hash[ labels.zip(units) ]
 
       response[2..-1].each do |line|
         values = line.split(/\s+/).collect { |item| (item == "MM") ? nil : item }

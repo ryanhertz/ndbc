@@ -62,6 +62,23 @@ describe NDBC::Station do
 
     it_behaves_like "station"
 
+    context 'when the station is not found' do
+      
+      let(:not_found_station) { NDBC::Station.new(00000) }
+
+      let(:not_found_result) do 
+        VCR.use_cassette("standard_meteorological_data_not_found") do
+          not_found_station.standard_meteorological_data
+        end
+      end
+
+      it "returns a hash with units and values" do
+        expect(not_found_result[:units]).to be_a(Hash)
+        expect(not_found_result[:values]).to be_a(Array)
+      end
+
+    end
+
   end
 
   describe "meteorological data from drifting buoys" do
