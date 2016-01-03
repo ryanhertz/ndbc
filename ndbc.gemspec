@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "ndbc"
   spec.version       = NDBC::VERSION
   spec.authors       = ["Ryan Hertz"]
-  spec.email         = ["ryandhertz@gmail.com"]
+  spec.email         = [""]
   spec.summary       = %q{Get NDBC buoy data.}
   spec.description   = %q{Get NDBC buoy data and possibly other stuff.}
   spec.homepage      = ""
