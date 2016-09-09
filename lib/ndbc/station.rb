@@ -43,6 +43,38 @@ module NDBC
       latest_data(:spectral_wave_forecasts)
     end
 
+    def method_missing(method_sym, *arguments, &block)
+      upcased_method_name = method_sym.to_s.upcase
+      case method_sym
+      when :wdir, :wspd, :gst, :wvht, :dpd, :apd, :mwd,
+           :pres, :atmp, :wtmp, :dewp, :vis, :ptdy, :tide
+        latest_standard_meteorological_data[upcased_method_name]
+      when :dir, :spd, :gdr, :gsp, :gtime
+        latest_continuous_winds_data[upcased_method_name]
+      when :h0, :wwh, :wwp, :wwd, :steepness, :avp
+        latest_spectral_wave_summaries[upcased_method_name]
+      when :swh
+        latest_spectral_wave_summaries['SwH']
+      when :swp
+        latest_spectral_wave_summaries['SwP']
+      when :swd
+        latest_spectral_wave_summaries['SwD']
+      else
+        super
+      end
+    end
+
+    def respond_to_missing?(method_sym, include_private = false)
+      case method_sym
+      when :wdir, :wspd, :gst, :wvht, :dpd, :apd, :mwd, :pres, :atmp, :wtmp, :dewp, :vis, :ptdy,
+           :tide, :dir, :spd, :gdr, :gsp, :gtime, :h0, :wwh, :wwp, :wwd, :steepness, :avp, :swh,
+           :swp, :swd, :swd
+        true
+      else
+        super
+      end
+    end
+
     private
 
     def latest_data(dataset)
