@@ -15,19 +15,73 @@ module NDBC
       parse_observation_response get_data(NDBC.config[:urls][:observations] + id + ".txt")
     end
 
+    def latest_standard_meteorological_data
+      latest_data(:standard_meteorological_data)
+    end
+
     def continuous_winds_data
       parse_observation_response get_data(NDBC.config[:urls][:observations] + id + ".cwind")
+    end
+
+    def latest_continuous_winds_data
+      latest_data(:continuous_winds_data)
     end
 
     def spectral_wave_summaries
       parse_observation_response get_data(NDBC.config[:urls][:observations] + id + ".spec")
     end
 
+    def latest_spectral_wave_summaries
+      latest_data(:spectral_wave_summaries)
+    end
+
     def spectral_wave_forecasts
       parse_prediction_response get_data(NDBC.config[:urls][:predictions] + "multi_1.#{id}.bull")
     end
 
+    def latest_spectral_wave_forecasts
+      latest_data(:spectral_wave_forecasts)
+    end
+
+    def method_missing(method_sym, *arguments, &block)
+      upcased_method_name = method_sym.to_s.upcase
+      case method_sym
+      when :wdir, :wspd, :gst, :wvht, :dpd, :apd, :mwd,
+           :pres, :atmp, :wtmp, :dewp, :vis, :ptdy, :tide
+        latest_standard_meteorological_data[upcased_method_name]
+      when :dir, :spd, :gdr, :gsp, :gtime
+        latest_continuous_winds_data[upcased_method_name]
+      when :h0, :wwh, :wwp, :wwd, :steepness, :avp
+        latest_spectral_wave_summaries[upcased_method_name]
+      when :swh
+        latest_spectral_wave_summaries['SwH']
+      when :swp
+        latest_spectral_wave_summaries['SwP']
+      when :swd
+        latest_spectral_wave_summaries['SwD']
+      else
+        super
+      end
+    end
+
+    def respond_to_missing?(method_sym, include_private = false)
+      case method_sym
+      when :wdir, :wspd, :gst, :wvht, :dpd, :apd, :mwd, :pres, :atmp, :wtmp, :dewp, :vis, :ptdy,
+           :tide, :dir, :spd, :gdr, :gsp, :gtime, :h0, :wwh, :wwp, :wwd, :steepness, :avp, :swh,
+           :swp, :swd, :swd
+        true
+      else
+        super
+      end
+    end
+
     private
+
+    def latest_data(dataset)
+      send(dataset)[:values].sort_by do |row|
+        "#{row['YY']}#{row['MM']}#{row['DD']}#{row['hh']}#{row['mm']}"
+      end.last
+    end
 
     def get_data(path)
       connection.get(path)

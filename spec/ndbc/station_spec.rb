@@ -1,9 +1,17 @@
 require 'spec_helper'
 
 describe NDBC::Station do
-  
-  let(:station) { NDBC::Station.new(41009) }
-  
+
+  subject(:station) { NDBC::Station.new(41009) }
+
+  it do
+    methods = %i(wdir wspd gst wvht dpd apd mwd pres atmp wtmp dewp vis ptdy tide dir spd gdr gsp
+                 gtime h0 wwh wwp wwd steepness avp swh swp swd swd)
+    methods.each do |method_sym|
+      is_expected.to respond_to(method_sym)
+    end
+  end
+
   describe "initialization" do
 
     it "assigns the id" do
@@ -11,7 +19,7 @@ describe NDBC::Station do
     end
 
     it "has a connection" do
-      expect(station).to respond_to(:connection) 
+      expect(station).to respond_to(:connection)
     end
 
   end
@@ -54,7 +62,7 @@ describe NDBC::Station do
 
   describe "standard_meteorological_data" do
 
-    let(:result) do 
+    let(:result) do
       VCR.use_cassette("standard_meteorological_data") do
         station.standard_meteorological_data
       end
@@ -63,10 +71,10 @@ describe NDBC::Station do
     it_behaves_like "station"
 
     context 'when the station is not found' do
-      
+
       let(:not_found_station) { NDBC::Station.new(00000) }
 
-      let(:not_found_result) do 
+      let(:not_found_result) do
         VCR.use_cassette("standard_meteorological_data_not_found") do
           not_found_station.standard_meteorological_data
         end
@@ -85,7 +93,7 @@ describe NDBC::Station do
   end
 
   describe "continuous winds data" do
-    let(:result) do 
+    let(:result) do
       VCR.use_cassette("continuous_winds_data") do
         station.continuous_winds_data
       end
@@ -95,7 +103,7 @@ describe NDBC::Station do
   end
 
   describe "spectral wave summaries" do
-    let(:result) do 
+    let(:result) do
       VCR.use_cassette("spectral_wave_summaries") do
         station.spectral_wave_summaries
       end
@@ -105,7 +113,7 @@ describe NDBC::Station do
   end
 
   describe "error handling" do
-    
+
     let(:not_found) do
       NDBC::Station.new(00000)
     end
@@ -135,7 +143,7 @@ describe NDBC::Station do
 
     it "parses the cycle line and uses it to set up the first date" do
       expect(response.first[:time]).to eq( DateTime.new(2015, 9, 7, 3) )
-    end 
+    end
 
     it "returns an array of hashes with a height key" do
       expect(response.first[:hst]).to be_a Float
