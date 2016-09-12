@@ -79,7 +79,7 @@ module NDBC
 
     def latest_data(dataset)
       send(dataset)[:values].sort_by do |row|
-        "#{row['YY']}#{row['MM']}#{row['DD']}"
+        "#{row['YY']}#{row['MM']}#{row['DD']}#{row['hh']}#{row['mm']}"
       end.last
     end
 
