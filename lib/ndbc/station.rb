@@ -7,7 +7,7 @@ module NDBC
 
     class << self
       def all
-        NDBC::StationTable.station_table_data.map { |data| new(data[:id], data) }
+        NDBC::StationTable.station_table_data.map { |data| new(data[:id].upcase, data) }
       end
     end
 

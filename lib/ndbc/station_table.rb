@@ -51,7 +51,7 @@ module NDBC
         unsigned_lon = parts[2].to_f
         lon_hemisphere = parts[3]
         lat_lon[:latitude] = lat_hemisphere == 'N' ? unsigned_lat : -unsigned_lat
-        lat_lon[:longitude] = lon_hemisphere == 'W' ? unsigned_lon : -unsigned_lon
+        lat_lon[:longitude] = lon_hemisphere == 'E' ? unsigned_lon : -unsigned_lon
 
         lat_lon
       end
