@@ -4,12 +4,11 @@ describe NDBC::Station do
 
   subject(:station) { NDBC::Station.new(41009) }
 
-  it do
-    methods = %i(wdir wspd gst wvht dpd apd mwd pres atmp wtmp dewp vis ptdy tide dir spd gdr gsp
-                 gtime h0 wwh wwp wwd steepness avp swh swp swd swd)
-    methods.each do |method_sym|
-      is_expected.to respond_to(method_sym)
-    end
+  methods = %i(wdir wspd gst wvht dpd apd mwd pres atmp wtmp dewp vis ptdy tide dir spd gdr gsp
+               gtime h0 wwh wwp wwd steepness avp swh swp swd swd owner ttype hull name payload
+               location timezone forecast note active)
+  methods.each do |method_sym|
+    it { is_expected.to respond_to(method_sym) }
   end
 
   describe "initialization" do
@@ -24,8 +23,36 @@ describe NDBC::Station do
 
   end
 
-  shared_examples_for "station" do
+  describe '.all' do
+    let(:result) do
+      VCR.use_cassette("station_table") do
+        NDBC::Station.all
+      end
+    end
 
+    it 'returns an array of stations' do
+      expect(result).to be_a(Array)
+      expect(result).to all(be_a(NDBC::Station))
+    end
+
+    describe 'the stations' do
+      it 'have the data from the station_table filled in' do
+        expect(result).to all(satisfy do |station|
+          location = station.location
+          location.class == Hash &&
+          location.key?(:latitude) &&
+          location.key?(:longitude)
+        end)
+        expect(result).to all(satisfy do |station|
+          inactive_regex = /disestablished|discontinued|inoperative|decommissioned/
+          station.note.nil? ||
+          station.active == !station.note.match(inactive_regex)
+        end)
+      end
+    end
+  end
+
+  shared_examples_for "station" do
     it "returns a hash with units and values" do
       expect(result[:units]).to be_a(Hash)
       expect(result[:values]).to be_a(Array)
@@ -60,7 +87,7 @@ describe NDBC::Station do
 
   end
 
-  describe "standard_meteorological_data" do
+  describe "#standard_meteorological_data" do
 
     let(:result) do
       VCR.use_cassette("standard_meteorological_data") do
@@ -89,10 +116,7 @@ describe NDBC::Station do
 
   end
 
-  describe "meteorological data from drifting buoys" do
-  end
-
-  describe "continuous winds data" do
+  describe "#continuous_winds_data" do
     let(:result) do
       VCR.use_cassette("continuous_winds_data") do
         station.continuous_winds_data
@@ -102,7 +126,7 @@ describe NDBC::Station do
     it_behaves_like "station"
   end
 
-  describe "spectral wave summaries" do
+  describe "#spectral_wave_summaries" do
     let(:result) do
       VCR.use_cassette("spectral_wave_summaries") do
         station.spectral_wave_summaries
@@ -126,7 +150,7 @@ describe NDBC::Station do
     end
   end
 
-  describe "spectral wave forecasts" do
+  describe "#spectral_wave_forecasts" do
 
     let(:buoy) { NDBC::Station.new(41009) }
 

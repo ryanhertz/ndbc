@@ -3,12 +3,37 @@ require 'active_support/time'
 
 module NDBC
   class Station
+    include NDBC::StationTable
+
+    class << self
+      def all
+        NDBC::StationTable.station_table_data.map { |data| new(data[:id].upcase, data) }
+      end
+    end
 
     attr_accessor :id, :connection
+    attr_reader :owner, :ttype, :hull, :name, :payload, :location, :timezone, :forecast, :note,
+                :active
 
-    def initialize(id)
+    alias_method :active?, :active
+
+    def initialize(id, station_data = {})
       @id = id.to_s
+      @owner = station_data[:owner]
+      @ttype = station_data[:ttype]
+      @hull = station_data[:hull]
+      @name = station_data[:name]
+      @payload = station_data[:payload]
+      @location = station_data[:location]
+      @timezone = station_data[:timezone]
+      @forecast = station_data[:forecast]
+      @note = station_data[:note]
+      @active = station_data[:active]
       @connection = Connection.new
+    end
+
+    def inspect
+      "#{id} (lat: #{@location[:latitude]}, lon: #{@location[:longitude]})"
     end
 
     def standard_meteorological_data
@@ -80,7 +105,7 @@ module NDBC
     def latest_data(dataset)
       send(dataset)[:values].sort_by do |row|
         "#{row['YY']}#{row['MM']}#{row['DD']}#{row['hh']}#{row['mm']}"
-      end.last
+      end.last || {}
     end
 
     def get_data(path)
