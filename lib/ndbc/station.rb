@@ -13,7 +13,7 @@ module NDBC
 
     attr_accessor :id, :connection
     attr_reader :owner, :ttype, :hull, :name, :payload, :location, :timezone, :forecast, :note,
-                :active
+                :active, :tide_station_id
 
     alias_method :active?, :active
 
@@ -29,6 +29,7 @@ module NDBC
       @forecast = station_data[:forecast]
       @note = station_data[:note]
       @active = station_data[:active]
+      @tide_station_id = station_data[:tide_station_id]
       @connection = Connection.new
     end
 
