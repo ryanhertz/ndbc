@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ryanhertz/ndbc.svg?branch=master)](https://travis-ci.org/ryanhertz/ndbc)
+
 # NDBC
 
 A ruby gem for getting NDBC (National Data Buoy Center) data.
