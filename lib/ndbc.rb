@@ -2,6 +2,7 @@ require "ndbc/version"
 require "ndbc/connection"
 require "ndbc/station_table"
 require "ndbc/station"
+require "ndbc/exceptions"
 
 module NDBC
 

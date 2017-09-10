@@ -120,7 +120,7 @@ module NDBC
     def get_data(path)
       connection.get(path)
     rescue NotFound => error
-      puts "Failed to get data for station #{id}"
+      raise NDBC::StationNotFound, "Could not find station #{id}"
     end
 
     def parse_observation_response(response)

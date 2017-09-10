@@ -3,6 +3,8 @@ require 'spec_helper'
 describe NDBC::Station do
 
   subject(:station) { NDBC::Station.new(41009) }
+  
+  let(:not_found_station) { NDBC::Station.new('00000') }
 
   methods = %i(wdir wspd gst wvht dpd apd mwd pres atmp wtmp dewp vis ptdy tide dir spd gdr gsp
                gtime h0 wwh wwp wwd steepness avp swh swp swd swd owner ttype hull name payload
@@ -52,7 +54,14 @@ describe NDBC::Station do
     end
   end
 
-  shared_examples_for "station" do
+  shared_examples_for :results_format do |meth|
+
+    let(:result) do
+      VCR.use_cassette(meth) do
+        station.public_send(meth)
+      end
+    end
+    
     it "returns a hash with units and values" do
       expect(result[:units]).to be_a(Hash)
       expect(result[:values]).to be_a(Array)
@@ -87,68 +96,30 @@ describe NDBC::Station do
 
   end
 
+  shared_examples_for :station_not_found do |meth|
+    it "raises NDBC::StationNotFound when the station url can't be found" do
+      VCR.use_cassette("#{meth}_station_not_found") do
+        expect{not_found_station.public_send(meth)}.to raise_error(
+          NDBC::StationNotFound, "Could not find station #{not_found_station.id}")
+      end
+    end
+  end
+
   describe "#standard_meteorological_data" do
-
-    let(:result) do
-      VCR.use_cassette("standard_meteorological_data") do
-        station.standard_meteorological_data
-      end
-    end
-
-    it_behaves_like "station"
-
-    context 'when the station is not found' do
-
-      let(:not_found_station) { NDBC::Station.new(00000) }
-
-      let(:not_found_result) do
-        VCR.use_cassette("standard_meteorological_data_not_found") do
-          not_found_station.standard_meteorological_data
-        end
-      end
-
-      it "returns a hash with units and values" do
-        expect(not_found_result[:units]).to be_a(Hash)
-        expect(not_found_result[:values]).to be_a(Array)
-      end
-
-    end
-
+    it_behaves_like :results_format, 'standard_meteorological_data'
+    it_behaves_like :station_not_found, 'standard_meteorological_data'
   end
 
   describe "#continuous_winds_data" do
-    let(:result) do
-      VCR.use_cassette("continuous_winds_data") do
-        station.continuous_winds_data
-      end
-    end
-
-    it_behaves_like "station"
+    it_behaves_like :results_format, 'continuous_winds_data'
+    it_behaves_like :station_not_found, 'continuous_winds_data'
   end
 
   describe "#spectral_wave_summaries" do
-    let(:result) do
-      VCR.use_cassette("spectral_wave_summaries") do
-        station.spectral_wave_summaries
-      end
-    end
-
-    it_behaves_like "station"
+    it_behaves_like :results_format, 'spectral_wave_summaries'
+    it_behaves_like :station_not_found, 'spectral_wave_summaries'
   end
 
-  describe "error handling" do
-
-    let(:not_found) do
-      NDBC::Station.new(00000)
-    end
-
-    it "catches 404's" do
-      VCR.use_cassette("station_not_found") do
-        expect{not_found.standard_meteorological_data}.not_to raise_error
-      end
-
-    end
-  end
 
   describe "#spectral_wave_forecasts" do
 
@@ -159,6 +130,8 @@ describe NDBC::Station do
         buoy.spectral_wave_forecasts
       end
     end
+
+    it_behaves_like :station_not_found, 'spectral_wave_forecasts'
 
     it "makes a request" do
       expect(buoy.connection).to receive(:get).with("http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/multi_1.41009.bull")
