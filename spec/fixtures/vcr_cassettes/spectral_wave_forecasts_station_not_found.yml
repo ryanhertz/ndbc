@@ -63,7 +63,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sun, 10 Sep 2017 14:52:53 GMT
+      - Sat, 30 Jun 2018 22:11:55 GMT
       Server:
       - Apache
       X-Frame-Options:
@@ -87,5 +87,5 @@ http_interactions:
         <p>The requested URL /waves/WEB/multi_1.latest_run/plots/multi_1.00000.bull was not found on this server.</p>
         </body></html>
     http_version: 
-  recorded_at: Sun, 10 Sep 2017 14:52:53 GMT
+  recorded_at: Sat, 30 Jun 2018 22:11:55 GMT
 recorded_with: VCR 2.9.3

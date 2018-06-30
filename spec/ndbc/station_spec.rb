@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe NDBC::Station do
 
-  subject(:station) { NDBC::Station.new(41009) }
+  subject(:station) { NDBC::Station.new(42039) }
   
   let(:not_found_station) { NDBC::Station.new('00000') }
 
@@ -16,7 +16,7 @@ describe NDBC::Station do
   describe "initialization" do
 
     it "assigns the id" do
-      expect(station.id).to eq("41009")
+      expect(station.id).to eq("42039")
     end
 
     it "has a connection" do
@@ -90,7 +90,7 @@ describe NDBC::Station do
       end
 
       it "skips the first two rows of raw data" do
-        expect(result[:values].first["YY"]).to eq("2015")
+        expect(result[:values].first["YY"]).to match(/^\d{4}$/)
       end
     end
 
@@ -139,7 +139,7 @@ describe NDBC::Station do
     end
 
     it "parses the cycle line and uses it to set up the first date" do
-      expect(response.first[:time]).to eq( DateTime.new(2015, 9, 7, 3) )
+      expect(response.first[:time]).to be_a DateTime
     end
 
     it "returns an array of hashes with a height key" do
