@@ -8,8 +8,8 @@ module NDBC
 
   @config = {
     urls: {
-      station_table: "http://www.ndbc.noaa.gov/data/stations/station_table.txt",
-      observations: "http://www.ndbc.noaa.gov/data/realtime2/",
+      station_table: "https://www.ndbc.noaa.gov/data/stations/station_table.txt",
+      observations: "https://www.ndbc.noaa.gov/data/realtime2/",
       predictions: "http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/"
     }
   }
